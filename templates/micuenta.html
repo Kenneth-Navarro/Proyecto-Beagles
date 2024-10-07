@@ -1,0 +1,102 @@
+
+
+<!DOCTYPE html>
+<script>
+    // Verificar si hay un usuario en la sesión y si el rol es 'Cliente'
+    var usuario = JSON.parse(sessionStorage.getItem("Usuario"));
+    if (usuario === null) {
+        // Redirigir a la página de error 404
+        window.location.href = "/404";
+    }
+</script>
+<html>
+
+
+{% include './layout/head.html' %}
+
+
+<body>
+    <div class="loader-background"  style="display: none;"></div> <!-- Fondo borroso -->
+    <div class="loader" style="display: none;"></div> <!-- Loader -->
+    
+    <!-- header section strats -->
+    <div class="area_banner_header">
+        
+    {% include './layout/header1.html' %}
+        
+    <section class="y-5 " style="height:180px ; background-color: #D5BFAA;">
+        <div class="container">
+            <div class="row align-items-center" style="margin-top: 70px;">
+                <div class="col-lg-6">
+                    <h1 class="h2 text-uppercase mb-0">Cuenta</h1>
+                </div>
+                <div class="col-lg-6 text-lg-end">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-lg-end mb-0 px-0">
+                            <li class="breadcrumb-item"><a class="text-dark" href="/">Inicio</a></li>
+                            <li class="breadcrumb-item"><a class="text-dark">Cuenta</a></li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+        <div class="d-flex justify-content-center mt-5 mb-5">
+
+            <div>
+                <input type="hidden" id="UsuarioAnterior" name="UsuarioAnterior">
+                <div class="d-flex justify-content-center" style="height: 100px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16" style="color: #6E5240">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                      </svg>
+                </div>
+                <div class="d-flex" id="botonEdita">
+                    <div class="flex-fill"></div>
+                    
+                </div>
+                <div class="coolinput">
+                    <label for="Nombre" class="text">Nombre</label>
+                    <input type="text" id="Nombre" name="Nombre" class="input" readonly>
+                </div>
+                <div class="coolinput">
+                    <label for="PrimerApellido" class="text">Primer Apellido</label>
+                    <input type="text" id="PrimerApellido" name="PrimerApellido" class="input" readonly>
+                </div>
+                <div class="coolinput">
+                    <label for="SegundoApellido" class="text">Segundo Apellido</label>
+                    <input type="text" id="SegundoApellido" name="SegundoApellido" class="input" readonly>
+                </div>
+                <div class="coolinput">
+                    <label for="Telefono" class="text">Teléfono</label>
+                    <input type="number" id="Telefono" name="Telefono" class="input" readonly>
+                </div>
+                
+                <div class="coolinput">
+                    <label for="Correo" class="text">Correo</label>
+                    <input type="maill" id="Correo" name="Correo" class="input" readonly>
+                </div>
+                <div class="d-flex mt-5" id="botonUsuario" style="margin-bottom: -10px;">
+                    <div class="flex-fill"></div>
+                </div>
+                <div class="coolinput">
+                    <label for="Usuario" class="text">Usuario</label>
+                    <input type="text" id="Usuario" name="Usuario" class="input" readonly>
+                </div>
+
+                <div class="mt-3" id="botonCuenta"></div>
+            </div>
+            
+        </div>
+
+        
+
+    {% include './layout/footer.html' %}
+    <script src="{{url_for('static', filename='/js/InicioSesion/cuenta.js')}}"></script>
+    <script src="{{url_for('static', filename='/js/vistaCliente.js')}}"></script>
+
+</body>
+
+</html>

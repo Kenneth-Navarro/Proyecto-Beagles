@@ -1,0 +1,19 @@
+# Ignorar la carpeta del entorno virtual de Python
+.venv/
+
+# Ignorar archivos de configuración de IDE
+.vscode/
+.idea/
+
+# Ignorar archivos de caché y compilados de Python
+*.pyc
+__pycache__/
+
+# Ignorar archivos de registro y datos temporales
+*.log
+*.csv
+*.xlsx
+
+# Ignorar archivos generados por sistema operativo
+.DS_Store
+Thumbs.db

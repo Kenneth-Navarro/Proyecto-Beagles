@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+
+
+{% include './layout/head.html' %}
+
+
+<body>
+    <div class="loader-background"  style="display: none;"></div> <!-- Fondo borroso -->
+    <div class="loader" style="display: none;"></div> <!-- Loader -->
+
+    <!-- header section strats -->
+    <div class="area_banner_header">
+
+        {% include './layout/header1.html' %}
+
+        <!-- banner section -->
+        <section class="banner_section">
+            <div class="container">
+                <div class="row" style="padding: 0;">
+                    <div class="col-md-7 col-lg-6 ">
+                        <div class="detail-box">
+                            <h1>
+                                <span>
+                                    Bienvenidos a
+                                </span>
+                                <br>
+                                Club de Beagles
+                            </h1>
+                            <p>
+                                Donde las orejas largas y las patas
+                                cortas encuentran su comunidad. </p>
+                            <div class="">
+                                <a href="#quienes_somos" class="">
+                                    Quienes Somos
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-7 col-lg-6 ">
+                        <img src="{{url_for('static', filename='images/perro.png')}}" alt="" width="400"
+                            style="padding-top: 70px;">
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!-- fin banner section -->
+    </div>
+
+    <!-- quienes somos section -->
+    <section class="quienes_somos layout_padding mb-5" id="quienes_somos">
+        <div class="container">
+            <div class="heading_container heading_center">
+                <h2>
+                    Quienes Somos
+                    <div class="lineaIndex"></div>
+                </h2>
+            </div>
+
+            <div class="col-md-12">
+                <div class="box">
+                    <div class="detail-box">
+                        <p>
+                            Somos una empresa dedicada exclusivamente al cuidado y bienestar de los beagles. Desde
+                            nuestra tienda especializada hasta nuestros consejos, todo está diseñado pensando en la
+                            felicidad y salud de estos encantadores perros.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <!-- fin quienes somos section -->
+
+
+    <section class="noticias_section layout_padding mb-5">
+        <div class="container ">
+            <div class="row">
+                <div class="col-md-4 info-section">
+                    <img src="{{url_for('static', filename='images/pata.png')}}" alt="" width="60px" height="30px">
+                    <div class="ms-3">
+                        <h5 class="text-dark mb-1">Comparte con la comunidad</h5>
+                        <p>
+                            Explora el fascinante mundo
+                            de los beagles con nosotros
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 info-section">
+                    <img src="{{url_for('static', filename='images/pata.png')}}" alt="" width="60px" height="30px">
+                    <div class="ms-3">
+                        <h5 class="font-weight-bold-2 mb-1">Crea recuerdos</h5>
+                        <p class="text">
+                            Explora el fascinante mundo
+                            de los beagles con nosotros
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 info-section">
+                    <img src="{{url_for('static', filename='images/pata.png')}}" alt="" width="60px" height="30px">
+                    <div class="ms-3">
+                        <h5 class="text-dark mb-1">Asiste a eventos</h5>
+                        <p>
+                            Explora el fascinante mundo
+                            de los beagles con nosotros
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="layout_padding mb-5">
+        <div class="container p-0">
+            <div class="heading_container heading_center">
+                <h2>
+                    <span style="color: black;">Nuestros</span> Productos
+                    <div class="lineaIndex"></div>
+                </h2>
+            </div>
+            <div class="row mb-5">
+                <div class=" col-lg-12 order-1 order-lg-12 mb-5 mb-lg-0">
+                    <div id="productContainer" class="row">
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="tienda">
+                    <button class="boton" style="font-size: 15px;">Ver más productos</button>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Contenido de tu página -->
+    <section class="reseñas_section layout_padding mb-5">
+        <div class="container">
+            <div class="heading_container heading_center">
+                <!-- Aquí puedes agregar un título si lo deseas -->
+            </div>
+            <div id="carruselReseñas" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="box col-lg-10 mx-auto">
+                            <div class="mb-4">
+                                <img src="{{url_for('static', filename='images/icon.png')}}" alt="">
+                            </div>
+                            <p class="mb-4">
+                                Excelente servicio y productos de alta calidad. ¡Muy recomendado!
+                            </p>
+                            <div class="img_container">
+                                <div class="img-box">
+                                    <div class="img_box-inner">
+                                        <img src="{{url_for('static', filename='images/ana.png')}}" alt="img">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="detail-box">
+                                <h5>
+                                    Ana García
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="box col-lg-10 mx-auto ">
+                            <div class="mb-4">
+                                <img src="{{url_for('static', filename='images/icon.png')}}" alt="">
+                            </div>
+                            <p class="mb-4">
+                                Nuestra tienda ofrece una amplia variedad de productos para satisfacer las necesidades
+                                de tu mascota.
+                            </p>
+                            <div class="img_container">
+                                <div class="img-box">
+                                    <div class="img_box-inner">
+                                        <img src="{{url_for('static', filename='images/juanPerez.png')}}" alt="img">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="detail-box">
+                                <h5>
+                                    Juan Pérez
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="box col-lg-10 mx-auto">
+                            <div class="mb-4">
+                                <img src="{{url_for('static', filename='images/icon.png')}}" alt="">
+                            </div>
+                            <p class="mb-4">
+                                Con nuestra experiencia y compromiso, estamos aquí para brindarte el mejor servicio y
+                                atención a tu mascota.
+                            </p>
+                            <div class="img_container">
+                                <div class="img-box">
+                                    <div class="img_box-inner">
+                                        <img src="{{url_for('static', filename='images/mariaLopez.png')}}" alt="img">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="detail-box">
+                                <h5>
+                                    María López
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Agrega más elementos de carrusel según sea necesario -->
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carruselReseñas"
+                    data-bs-slide="prev">
+                    <span class="fa fa-long-arrow-left" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carruselReseñas"
+                    data-bs-slide="next">
+                    <span class="fa fa-long-arrow-right" aria-hidden="true"></span>
+                    <span class="visually-hidden">Siguiente</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- fin reseñas section -->
+
+    <section class="consejos-section  layout_padding mb-5">
+        <div class="container">
+            <div class="heading_container heading_center mb-5">
+                <h2>
+                    <span style="color: black;">Consejos De</span> Beagles
+                    <div class="lineaIndex"></div>
+                </h2>
+            </div>
+            <div class="row ">
+                <div class="col-md-4">
+                    <div class="carta">
+                        <div class="content">
+                            <p class="heading">Alimentación Balanceada
+                            </p>
+                            <p class="para">
+                                Asegúrate de proporcionar una dieta equilibrada y adecuada a las necesidades
+                                nutricionales de tu beagle. Consulta con tu veterinario para obtener recomendaciones
+                                específicas.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="carta">
+                        <div class="content">
+                            <p class="heading">Ejercicio Diario
+                            </p>
+                            <p class="para">
+                                Los beagles son perros activos que necesitan ejercicio regular para mantenerse
+                                saludables y felices. Programa caminatas diarias y juegos activos para satisfacer su
+                                necesidad de actividad física.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="carta">
+                        <div class="content">
+                            <p class="heading">Entrenamiento de Olfato
+                            </p>
+                            <p class="para">
+                                Aprovecha el increíble sentido del olfato de tu beagle mediante juegos y actividades de
+                                rastreo. Esto no solo proporcionará estimulación mental, sino que también fortalecerá el
+                                vínculo entre tú y tu mascota.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </div>
+    </section>
+
+
+    {% include './layout/footer.html' %}
+
+    <script src="{{url_for('static', filename='/js/tienda/productoIndex.js')}}"></script>
+    <script src="{{url_for('static', filename='/js/vistaCliente.js')}}"></script>
+
+
+</body>
+
+</html>

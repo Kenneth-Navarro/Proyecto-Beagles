@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+
+{% include './layout/head.html' %}
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+<body>
+    <!-- header section strats -->
+    <div class="area_banner_header">
+
+        {% include './layout/header1.html' %}
+
+        <section class="p y-5 " style="height:180px ; background-color: #D5BFAA;">
+            <div class="container">
+                <div class="row align-items-center" style="margin-top: 70px;">
+                    <div class="col-lg-6">
+                        <h1 class="h2 text-uppercase mb-0">Carrito</h1>
+                    </div>
+                    <div class="col-lg-6 text-lg-end">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb justify-content-lg-end mb-0 px-0">
+                                <li class="breadcrumb-item"><a class="text-dark" href="/">Inicio</a></li>
+                                <li class="breadcrumb-item"><a class="text-dark">Carrito</a></li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <section class="py-5">
+                <div class="row">
+                    <div class="col-lg-8 mb-4 mb-lg-0">
+                        <!-- CART TABLE-->
+                        <div class="table-responsive mb-4">
+                            <table class="table text-nowrap">
+                                <thead class="bg-light">
+                                    <tr>
+                                        <th class="border-0 p-3" scope="col">
+                                            <strong class="text-sm text-uppercase">Producto</strong>
+                                        </th>
+                                        <th class="border-0 p-3" scope="col">
+                                            <strong class="text-sm text-uppercase">Precio</strong>
+                                        </th>
+                                        <th class="border-0 p-3" scope="col">
+                                            <strong class="text-sm text-uppercase">Cantidad</strong>
+                                        </th>
+                                        <th class="border-0 p-3" scope="col">
+                                            <strong class="text-sm text-uppercase">Total</strong>
+                                        </th>
+                                        <th class="border-0 p-3" scope="col">
+                                            <strong class="text-sm text-uppercase"></strong>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="border-0">
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- CART NAV-->
+                        <div class="bg-light px-4 py-3">
+                            <div class="row align-items-center text-center">
+                                <div class="col-md-6 mb-3 mb-md-0 text-md-start">
+                                    <a class="seguir-carrito-btn" href="tienda"><i
+                                            class="fas fa-long-arrow-alt-left me-2"></i>Seguir comprando</a>
+                                </div>
+                                <div class="col-md-4 text-md-end ms-md-auto" id="carritoEliminar"> <!-- Agregamos la clase ms-md-auto aquí -->
+                                    
+                                </div>
+                                <div class="col-md-6 text-md-end"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="Tu_Orden" class="col-lg-4">
+                   
+                    </div>
+                    <!-- ORDER TOTAL-->
+
+                    <div id="Detalle_pedido" class="col-lg-8 ">
+                       
+                    </div>
+                </div>
+
+        </div>
+
+
+
+        <!-- ORDER SUMMARY-->
+
+        </section>
+
+
+    </div>
+
+    {% include './layout/footer.html' %}
+    <script src="{{url_for('static', filename='/js/tienda/MostrarCarrito.js')}}"></script>
+    <script src="{{url_for('static', filename='/js/vistaCliente.js')}}"></script>
+
+</body>
+
+</html>

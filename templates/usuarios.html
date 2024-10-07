@@ -1,0 +1,144 @@
+<script>
+    // Verificar si hay un usuario en la sesión y si el rol es 'Cliente'
+    var usuario = JSON.parse(sessionStorage.getItem("Usuario"));
+    if (usuario === null || usuario.Rol === 'Cliente') {
+        // Redirigir a la página de error 404
+        window.location.href = "/404";
+    }
+</script>
+<!DOCTYPE html>
+<html>
+
+{% include './layout/head.html' %}
+
+<body>
+    <div class="modal fade" id="modal1" tabindex="-1" aria-labelledby="modal1" aria-modal="true" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div id="modalHijo" class="modal-content">
+
+            </div>
+        </div>
+    </div>
+    
+    
+    {% include './layout/headeradmin.html' %}
+                            <div class="col-xl-9">
+                                <!-- PAGE CONTENT-->
+                                <div class="page-content">
+
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <!-- RECENT REPORT-->
+                                            <div class="card" style="border: none;">
+                                                <div class="card-header cardHeader"
+                                                style=
+                                                "background-color: #D5BFAA;
+                                                color: #FFFFFF;
+                                                font-weight: 500; 
+                                                border-bottom:  black 1px solid;">Agregar Usuario</div>
+                                                <div class="card-body">
+                                                    <div class="card-title">
+                                                        <h3 class="text-center mb-5">Nuevo Usuario</h3>
+                                                    </div>
+                                                    <form action="" id="formulario" method="post" novalidate="novalidate" >
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <div class="coolinput">
+                                                                    <label for="Usuario" class="text">Usuario</label>
+                                                                    <input type="text" id="Usuario" placeholder="Escribe aquí..." name="Usuario" class="input">
+                                                                </div>
+                                                                <div class="coolinput">
+                                                                    <label for="Contrasena" class="text">Contrasena</label>
+                                                                    <input type="password" id="Contrasena" placeholder="Escribe aquí..." name="Contrasena" class="input">
+                                                                </div>
+                                                                
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <div class="coolinput">
+                                                                    <label for="confirmContrasena" class="text">Confirmar Contraseña</label>
+                                                                    <input type="password" id="confirmContrasena" placeholder="Escribe aquí..." name="confirmContrasena" class="input">
+                                                                </div>
+                                                                <div class="coolinput">
+                                                                    <label for="Empleado" class="text">Empleado</label>
+                                                                    <select id="Empleado" name="Empleado" class="select" >
+                                                                        
+                                                                    </select>                                                                
+                                                                </div>
+                                                                
+                                                                
+                                                            </div>
+                                                        </div>
+                                                       
+                                                        <div style="text-align: center;" class="mt-5">
+                                                            <button class="boton" id="Enviar" name="Enviar"  class="btn" >
+                                                                <span id="">Crear Usuario</span>
+                                                            </button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <!-- END RECENT REPORT-->
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            
+                                            <div class="opcionUsuarios mb-3">
+                                                <div class="text-center m-2">
+                                                    <h4>Mostrar los Usuarios</h4>
+                                                </div>
+                                                <div class="radio-input mb-2">
+                                                    <label>
+                                                    <input type="radio" id="Administradores" name="value-radio" value="value-1">
+                                                    <span>Administradores</span>
+                                                    </label>
+                                                    <label>
+                                                      <input type="radio" id="Clientes" name="value-radio" value="value-2">
+                                                    <span>Clientes</span>
+                                                    </label>
+                                                    
+                                                    <span class="selection"></span>
+                                                  </div>
+                                              </div>
+                                            <div class="table-responsive m-b-40" >
+                                                <table style="display: none;" id="tablaUsuarios" class="table table-borderless table-striped table-data3">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Usuario</th>
+                                                            <th>Propietario</th>
+                                                            <th>Rol</th>
+                                                            <th></th>
+                                                            <th></th>
+                                                            <th></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody></tbody>
+                                                </table>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- END PAGE CONTENT-->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- END PAGE CONTENT  -->
+
+        </div>
+
+
+        {% include './layout/footer.html' %}
+
+
+        <script src="{{url_for('static', filename='/js/Usuarios/usuarios.js')}}"></script>
+        <script src="{{url_for('static', filename='/js/vistaAdmin.js')}}"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,149 @@
+<script>
+    // Verificar si hay un usuario en la sesión y si el rol es 'Cliente'
+    var usuario = JSON.parse(sessionStorage.getItem("Usuario"));
+    if (usuario === null || usuario.Rol === 'Cliente') {
+        // Redirigir a la página de error 404
+        window.location.href = "/404";
+    }
+</script>
+<!DOCTYPE html>
+<html>
+
+{% include './layout/head.html' %}
+<body>
+    <div class="modal fade" id="modal1" tabindex="-1" aria-labelledby="modal1" aria-modal="true" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div id="modalHijo" class="modal-content">
+
+            </div>
+        </div>
+    </div>
+    
+    {% include './layout/headeradmin.html' %}
+                            <div class="col-xl-9">
+                                <!-- PAGE CONTENT-->
+                                <div class="page-content">
+
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <!-- RECENT REPORT-->
+                                            <div class="card" style="border: none;">
+
+                                                <div class="card-header" 
+                                                style=
+                                                "background-color: #D5BFAA;
+                                                color: #FFFFFF;
+                                                font-weight: 500; 
+                                                border-bottom:  black 1px solid;"> Agregar Proveedor
+                                                </div>
+                                              
+                                                <div class="card-body">
+                                                    <div class="card-title">
+                                                        <h3 class="text-center mb-5">Nuevo Proveedor</h3>
+                                                    </div>
+                                                    <form action="" id="formulario" method="post" novalidate="novalidate">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <div class="coolinput">
+                                                                    <label for="Nombre" class="text mb-1">Nombre</label>
+                                                                    <input id="Nombre" name="Nombre"
+                                                                        type="text" class="input" aria-required="true" placeholder="Escribe aquí...">
+                                                                </div>
+                                                                <div class="coolinput">
+                                                                    <label for="Encargado" class="text mb-1" >Encargado</label>
+                                                                    <input id="Encargado" name="Encargado"
+                                                                        type="text" class="input" aria-required="true" placeholder="Escribe aquí...">
+                                                                </div>
+                                                           
+                                                                <div class="coolinput">
+                                                                    <label for="Metodo"  class="text mb-1">Metodo Pago</label>
+                                                                    <select id="Metodo" name="Metodo" class="select" >
+                                                                        <option selected value="">Seleccionar Metodo</option>
+                                                                        <option value="Efectivo">Efectivo</option>
+                                                                        <option value="Transferencia">Transferencia</option>
+                                                                        <option value="SINPE">SINPE</option>
+                                                                    </select>
+                                                                </div>
+
+
+
+                                                              
+                                                            </div>
+                                                            <div class="col-6">
+
+                                                                <div class="coolinput">
+                                                                    <label for="Correo" class="text mb-1">Correo</label>
+                                                                    <input id="Correo" name="Correo" type="mail" class="input" aria-required="true" placeholder="Escribe aquí...">
+                                                                </div>
+
+                                                                <div class="coolinput">
+                                                                    <label for="Telefono"  class="text mb-1">Télefono</label>
+                                                                    <input id="Telefono" name="Telefono" type="number" class="input" aria-required="true" placeholder="Escribe aquí...">
+                                                                </div>
+
+                                                                <div class="coolinput">
+                                                                    <label for="Direccion"  class="text mb-1">Dirección</label>
+                                                                    <input id="Direccion" name="Direccion" type="text" class="input mb-5" aria-required="true" placeholder="Escribe aquí...">
+                                                                </div>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div style="text-align: center;">
+                                                            <button id="Enviar" name="Enviar" type="" class="boton" >
+                                                                <span id="">Crear Proveedor</span>
+                                                            </button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <!-- END RECENT REPORT-->
+                                        </div>
+
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-12">
+
+                                            <div class="table-responsive m-b-40">
+                                                <table id="tablaProveedores" class="table table-borderless table-striped table-data3">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Nombre</th>
+                                                            <th>Encargado</th>
+                                                            <th>Telefono</th>
+                                                            <th></th>
+                                                            <th></th>
+                                                            <th></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody></tbody>
+                                                </table>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- END PAGE CONTENT-->
+                            </div>
+                            
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- END PAGE CONTENT  -->
+
+        </div>
+
+
+        {% include './layout/footer.html' %}
+
+
+        <script src="{{url_for('static', filename='/js/Proveedores/proveedores.js')}}"></script>
+        <script src="{{url_for('static', filename='/js/vistaAdmin.js')}}"></script>
+
+        
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+
+{% include './layout/head.html' %}
+
+
+<body>
+    <div class="modal fade" id="modal1" tabindex="-1" aria-labelledby="modal1" aria-modal="true" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div id="modalHijo" class="modal-content">
+
+            </div>
+        </div>
+    </div>
+    <!-- header section strats -->
+    <div class="area_banner_header">
+
+        {% include './layout/header1.html' %}
+
+        <section class="p y-5 " style="height:180px ; background-color: #D5BFAA;">
+            <div class="container">
+                <div class="row align-items-center" style="margin-top: 70px;">
+                    <div class="col-lg-6">
+                        <h1 class="h2 text-uppercase mb-0">Eventos</h1>
+                    </div>
+                    <div class="col-lg-6 text-lg-end">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb justify-content-lg-end mb-0 px-0">
+                                <li class="breadcrumb-item"><a class="text-dark" href="index.html">Inicio</a></li>
+                                <li class="breadcrumb-item"><a class="text-dark">Eventos</a></li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+       
+        <section class="py-5">
+            <div class="container p-0">
+                <div id="eventosContainer" class="row justify-content-center">
+                    <!-- Los eventos se insertarán aquí -->
+                </div>
+            </div>
+        </section>
+        
+        
+
+    </div>
+
+
+    {% include './layout/footer.html' %}
+
+
+    <script src="{{url_for('static', filename='/js/Eventos/eventosP.js')}}"></script>
+    <script src="{{url_for('static', filename='/js/vistaCliente.js')}}"></script>
+
+</body>
+
+</html>

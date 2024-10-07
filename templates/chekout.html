@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+
+{% include './layout/head.html' %}
+
+
+<body>
+    <!-- header section strats -->
+    <div class="area_banner_header">
+
+        {% include './layout/header1.html' %}
+
+        <section class="p y-5 " style= "height:180px ; background-color: #D5BFAA;" >
+            <div class="container">
+                <div class="row align-items-center" style="margin-top: 70px;">
+                    <div class="col-lg-6">
+                        <h1 class="h2 text-uppercase mb-0">Carrito</h1>
+                    </div>
+                    <div class="col-lg-6 text-lg-end">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb justify-content-lg-end mb-0 px-0">
+                                <li class="breadcrumb-item"><a class="text-dark" href="index.html">Inicio</a></li>
+                                <li class="breadcrumb-item"><a class="text-dark">Carrito</a></li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <section class="py-5" style="margin-bottom: 140px;">
+                <!-- BILLING ADDRESS-->
+                <div class="row">
+                    <div class="col-lg-8">
+                        <h2 class="h3 mb-5">Detalle Compra</h2>
+                        <form action="#">
+                            <div class="row gy-3">
+                                <div class="col-lg-6">
+                                    <label class="form-label" for="nombre">Primer Nombre
+                                    </label>
+                                    <input class="form-control form-control-lg" type="text" id="nombre">
+                                </div>
+                                <div class="col-lg-6">
+                                    <label class="form-label" for="apellidos">Apellidos </label>
+                                    <input class="form-control form-control-lg" type="text" id="apellidos">
+                                </div>
+                                <div class="col-lg-6">
+                                    <label class="form-label" for="correo">Correo
+                                        Electronico</label>
+                                    <input class="form-control form-control-lg" type="email" id="correo" placeholder="prueba@example.com">
+                                </div>
+                                <div class="col-lg-6">
+                                    <label class="form-label" for="telefono">Numero Telefono
+                                    </label>
+                                    <input class="form-control form-control-lg" type="tel" id="telefono" placeholder="+506 22223333">
+                                </div>
+
+                                <div class="col-lg-6 ">
+                                    <label class="form-label " for="region">Region</label>
+                                    <input class="form-control form-control-lg" type="text" id="Pais" placeholder="Costa Rica">
+                                </div>
+
+                                <div class="col-lg-6 ">
+                                    <label class="form-label" for="provincia">Provincia</label>
+                                    <input class="form-control form-control-lg" type="text" id="provincia">
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <label class="form-label " for="distrito">Distrito</label>
+                                    <input class="form-control form-control-lg" type="text" id="distrito">
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <label class="form-label" for="codigo_postal">Codigo Postal </label>
+                                    <input class="form-control form-control-lg" type="text" id="codigo_postal"
+                                        placeholder="20104">
+                                </div>
+                                <div class="col-lg-12">
+                                    <label class="form-label " for="dirreccion">Direccion </label>
+                                    <input class="form-control form-control-lg" type="text" id="dirreccion"
+                                        placeholder="">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- ORDER SUMMARY-->
+                    <div class="col-lg-4">
+                        <div class="card border-0 rounded-0 p-lg-4 bg-light">
+                            <div class="card-body">
+                                <h5 class="text-uppercase mb-4">Tu Orden</h5>
+
+                                <ul class="list-unstyled mb-0">
+                                    <li class="d-flex align-items-center justify-content-between">
+                                        <strong class="small fw-bold">Producto</strong>
+                                        <span class="text-muted small">$Precio</span>
+                                    </li>
+                                    <li class="border-bottom my-2"></li>
+                                    <li class="d-flex align-items-center justify-content-between">
+                                        <strong class="small fw-bold">Producto</strong>
+                                        <span class="text-muted small">$Precio</span>
+                                    </li>
+
+                                    <li class="border-bottom my-2 mb-5"></li>
+
+                                    <li class="d-flex align-items-center justify-content-between mb-2">
+                                        <strong class="text-uppercase small fw-bold">SubTotal</strong>
+                                        <span>2321</span>
+                                    </li>
+                                    <li class="d-flex align-items-center justify-content-between mb-5">
+                                        <strong class="text-uppercase small fw-bold">Total</strong>
+                                        <span>600</span>
+                                    </li>
+                                </ul>
+
+                                <div class="form-check mb-3">
+                                    <input class="form-check-input" type="radio" name="efectivo1" id="efectivo">
+                                    <label class="form-check-label" for="efectivo">
+                                        Efectivo
+                                    </label>
+                                </div>
+                                <div class="form-check mb-5">
+                                    <input class="form-check-input" type="radio" name=" sinpe_movil1" id="sinpe_movil">
+                                    <label class="form-check-label" for="sinpe_movil">
+                                        Sinpe Movil
+                                    </label>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <button class="btn rounded-4" style="background-color:#E97B7B ;"
+                                        type="submit">Realizar pedido</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+        {% include './layout/footer.html' %}
+        <script src="{{url_for('static', filename='/js/vistaCliente.js')}}"></script>
+
+
+</body>
+
+</html>

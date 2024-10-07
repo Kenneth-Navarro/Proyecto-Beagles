@@ -1,0 +1,109 @@
+<script>
+    // Verificar si hay un usuario con la sesion activa
+    var usuario = JSON.parse(sessionStorage.getItem("Usuario"));
+    if (usuario != null) {
+        // Redirigir a la página de error 404
+        window.location.href = "/404";
+    }
+</script>
+
+<!DOCTYPE html>
+<html >
+{% include './layout/head.html' %}
+<body>
+    <div class="loader-background"  style="display: none;"></div> <!-- Fondo borroso -->
+    <div class="loader" style="display: none;"></div> <!-- Loader -->
+    <div class="row contenedor">
+        <div class="col-md-4">
+            <img style="width: 100vh;" src="{{url_for('static', filename='/images/pexels-elina-volkova-18842686.jpg')}}" alt="">
+        </div>
+        <div class="col-md-8 d-flex justify-content-center align-items-center text-center">
+            
+            <div>
+                
+                <div class="row mb-5">
+                    <a class="botonVolver " style="position: fixed; top: 5%; left: 38%;" href="/iniciarSesion">
+                        <div class="botonVolver-box">
+                          <span class="botonVolver-elem">
+                            <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"
+                              ></path>
+                            </svg>
+                          </span>
+                          <span class="botonVolver-elem">
+                            <svg viewBox="0 0 46 40">
+                              <path
+                                d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"
+                              ></path>
+                            </svg>
+                          </span>
+                        </div>
+                      </a>
+                    <h1 style="color: black;">Beagles CR</h1>
+                </div>
+                <div class="row mb-5">
+                    <h3 style="color: #6E5240;">Registro</h3>
+                </div>
+                <form action="" class="row">
+                    <div class="col-md-6">
+                        <div class="coolinput">
+                            <label for="Nombre" class="text">Nombre</label>
+                            <input type="text" id="Nombre" placeholder="Escribe aquí..." name="Nombre" class="input" autocomplete="off">
+                        </div>
+                        <div class="coolinput">
+                            <label for="PrimerApellido" class="text">Primer Apellido</label>
+                            <input type="text" id="PrimerApellido" placeholder="Escribe aquí..." name="PrimerApellido" class="input" autocomplete="off">
+                        </div>
+                        <div class="coolinput">
+                            <label for="SegundoApellido" class="text">Segundo Apellido</label>
+                            <input type="text" id="SegundoApellido" placeholder="Escribe aquí..." name="SegundoApellido" class="input" autocomplete="off">
+                        </div>
+                        <div class="coolinput">
+                            <label for="Telefono" class="text">Teléfono</label>
+                            <input type="number" id="Telefono" placeholder="Escribe aquí..." name="Telefono" class="input" autocomplete="off">
+                        </div>
+                        
+                    </div>
+                    <div class="col-md-6">
+                        
+                        <div class="coolinput">
+                            <label for="Correo" class="text">Correo</label>
+                            <input type="maill" id="Correo" placeholder="Escribe aquí..." name="Correo" class="input" autocomplete="off">
+                        </div>
+                        <div class="coolinput">
+                            <label for="Usuario" class="text">Usuario</label>
+                            <input type="text" id="Usuario" placeholder="Escribe aquí..." name="Usuario" class="input" autocomplete="off">
+                        </div>
+                        <div class="coolinput">
+                            <label for="Contrasena" class="text">Contraseña</label>
+                            <input type="password" id="Contrasena" placeholder="Escribe aquí..." name="Contrasena" class="input" autocomplete="off">
+                        </div>
+                        <div class="coolinput">
+                            <label for="ConfirmContrasena" class="text">Confirmar Contraseña</label>
+                            <input type="password" id="ConfirmContrasena" placeholder="Escribe aquí..." name="ConfirmContrasena" class="input" autocomplete="off">
+                        </div>
+                    </div>
+                </form>
+                <div class="mt-5">
+                    <button class="boton" id="Registro" type="button">Registrarse</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<!-- popper js -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+crossorigin="anonymous"></script>
+<!-- bootstrap css -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+crossorigin="anonymous"></script>
+
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<!-- jQuery y SweetAlert2 JS -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+<script src="{{url_for('static', filename='/js/InicioSesion/registro.js')}}"></script>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+{% include './layout/head.html' %}
+
+<body>
+    <div class="loader-background"  style="display: none;"></div> <!-- Fondo borroso -->
+    <div class="loader" style="display: none;"></div> <!-- Loader -->
+    <!-- header section strats -->
+    <div class="area_banner_header">
+
+        {% include './layout/header1.html' %}
+
+        <section class="p y-5 " style="height:180px ; background-color: #D5BFAA;">
+            <div class="container">
+                <div class="row align-items-center" style="margin-top: 70px;">
+                    <div class="col-lg-6">
+                        <h1 class="h2 text-uppercase mb-0">Producto</h1>
+                    </div>
+                    <div class="col-lg-6 text-lg-end">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb justify-content-lg-end mb-0 px-0">
+                                <li class="breadcrumb-item"><a class="text-dark" href="/">Inicio</a></li>
+                                <li class="breadcrumb-item"><a class="text-dark" href="/tienda">Tienda</a></li>
+                                <li class="breadcrumb-item"><a class="text-dark">Producto</a></li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        {% for respuest in respuesta %}
+
+        <section class="py-5">
+            <div class="container">
+                <div class="row mb-5">
+                    <div class="col-lg-6">
+                        <!-- PRODUCT SLIDER-->
+                        <div class="row m-sm-0">
+                            <div class="col-sm-10 order-1 order-sm-2">
+                                <div class="swiper product-slider">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide h-auto">
+                                            <a class="glightbox product-view" href="">
+                                                <img class="img-fluid" src="/{{respuest.Imagen}}" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- PRODUCT DETAILS-->
+                    <div class="col-lg-6">
+                        <h3 class="display-7 text-uppercase">
+                            {{respuest.Nombre}}
+                        </h3>
+                        <div class="pt-3 pb-3">
+                            <strong class="display-6 fw-bold" style="color: #845846;">
+                                ₡ {{respuest.Precio}}
+                            </strong>
+                        </div>
+                        <p >
+                            {{respuest.Descripcion}}
+                        </p>
+                        <div class="product-quantity">
+                          <div class="text-uppercase text-dark mt-5">
+                              <strong class="text-uppercase">Stock: </strong>
+                              {{respuest.Cantidad}}
+                          </div>
+                          <div class="stock-button-wrap pt-3">
+                              <div class="col-3 d-flex">
+                                  <button type="button" class="btn flex-fill" data-type="minus" data-field="quantity" style="background-color: #D5BFAA;">-</button>
+                                  <input type="text" id="quantity" name="quantity" class="form-control text-center" value="0" min="1" max="{{respuest.Cantidad}}" readonly>
+                                  <button type="button" class="btn flex-fill" data-type="plus" data-field="quantity" style="background-color: #D5BFAA;">+</button>
+                              </div>
+                              <div class="d-flex flex-wrap pt-3">
+                                <button id="Carrito" type="submit" name="agregarAlCarrito" class="mt-3 botonAnadir"
+                                data-codigo="{{respuest.Codigo}}" 
+                                data-imagen="{{respuest.Imagen}}" 
+                                data-nombre="{{respuest.Nombre}}" 
+                                data-precio="{{respuest.Precio}}" 
+                                data-cantidad-seleccionada="{{respuest.CantidadSeleccionada}}" 
+                                data-cantidad-stock="{{respuest.Cantidad}}">
+                                Añadir al carrito
+                            </button>
+                                           
+                              </div>
+                            </div>
+                          </div>
+                        <br>
+                        <ul class="list-unstyled small d-inline-block">
+                            <li class="px-3 py-2 mb-1 bg-white">
+                                <strong class="text-uppercase">Codigo: </strong>
+                                <span class="ms-2 text-muted" id="codigoProducto">
+                                    {{respuest.Codigo}}
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+        <div id="mensajeUsuarioNull" style="display: none; margin-top: 20px;" class="alert alert-danger" role="alert">
+            Debes iniciar sesión para agregar productos al carrito.
+        </div>
+        {% endfor %}
+
+        {% include './layout/footer.html' %}
+
+        <script src="{{url_for('static', filename='/js/tienda/carrito.js')}}"></script>
+        <script src="{{url_for('static', filename='/js/vistaCliente.js')}}"></script>
+
+
+</body>
+
+</html>

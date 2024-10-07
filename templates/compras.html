@@ -1,0 +1,73 @@
+<script>
+    // Verificar si hay un usuario en la sesión y si el rol es 'Cliente'
+    var usuario = JSON.parse(sessionStorage.getItem("Usuario"));
+    if (usuario === null || usuario.Rol === 'Cliente') {
+        // Redirigir a la página de error 404
+        window.location.href = "/404";
+    }
+</script>
+<!DOCTYPE html>
+<html>
+
+{% include './layout/head.html' %}
+<body>
+    <div class="modal fade" id="modal1" tabindex="-1" aria-labelledby="modal1" aria-modal="true" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div id="modalHijo" class="modal-content">
+
+            </div>
+        </div>
+    </div>
+    
+    {% include './layout/headeradmin.html' %}
+                            <div class="col-xl-9">
+                                <!-- PAGE CONTENT-->
+                                <div class="page-content">
+
+                                  
+                                    
+                                    <div class="row">
+                                        <div class="col-md-12">
+
+                                            <div class="table-responsive m-b-40">
+                                                <table id="tablaCompras" class="table table-borderless table-striped table-data3">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Nombre</th>
+                                                            <th>Correo</th>
+                                                            <th>Telefono</th>
+                                                            <th>Productos</th>
+
+                                                            <th></th>
+                                                          
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody></tbody> 
+                                                </table>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- END PAGE CONTENT-->
+                            </div>
+                            
+                    
+                </section>
+            </div>
+            <!-- END PAGE CONTENT  -->
+
+        </div>
+
+
+        {% include './layout/footer.html' %}
+
+
+        <script src="{{url_for('static', filename='/js/Compras/compras.js')}}"></script>
+        <script src="{{url_for('static', filename='/js/vistaAdmin.js')}}"></script>
+
+        
+</body>
+
+</html>

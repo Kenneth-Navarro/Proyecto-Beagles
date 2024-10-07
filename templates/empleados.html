@@ -1,0 +1,169 @@
+<script>
+    // Verificar si hay un usuario en la sesión y si el rol es 'Cliente'
+    var usuario = JSON.parse(sessionStorage.getItem("Usuario"));
+    if (usuario === null || usuario.Rol === 'Cliente') {
+        // Redirigir a la página de error 404
+        window.location.href = "/404";
+    }
+</script>
+<!DOCTYPE html>
+<html>
+
+{% include './layout/head.html' %}
+
+<body>
+    <div class="modal fade" id="modal1" tabindex="-1" aria-labelledby="modal1" aria-modal="true" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div id="modalHijo" class="modal-content">
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="modal2" tabindex="-1" aria-labelledby="modal2" aria-modal="true" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class='modal-title tituloModal fs-4'>Imagen Seleccionada</h1>
+                    <button id="cerrarImagen" type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                </div>
+                <div class="modal-body d-flex justify-content-center">
+                    <img id="blah" src="#" alt="Empleado" class="imagen">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    
+    
+    {% include './layout/headeradmin.html' %}
+                            <div class="col-xl-9">
+                                <!-- PAGE CONTENT-->
+                                <div class="page-content">
+
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <!-- RECENT REPORT-->
+                                            <div class="card" style="border: none;">
+                                                <div class="card-header cardHeader" style=
+                                                "background-color: #D5BFAA;
+                                                color: #FFFFFF;
+                                                font-weight: 500; 
+                                                border-bottom:  black 1px solid;">Agregar Empleado</div>
+                                                <div class="card-body">
+                                                    <div class="card-title">
+                                                        <h3 class="text-center mb-5">Nuevo Empleado</h3>
+                                                    </div>
+                                                    <form action="" id="formulario" method="post" novalidate="novalidate" enctype="multipart/form-data" >
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <div class="coolinput">
+                                                                    <label for="Cedula" class="text">Cédula</label>
+                                                                    <input type="number" id="Cedula" placeholder="Escribe aquí..." name="Cedula" class="input" >
+                                                                </div>
+                                                                <div class="coolinput">
+                                                                    <label for="Nombre" class="text">Nombre</label>
+                                                                    <input type="text" id="Nombre" placeholder="Escribe aquí..." name="Nombre" class="input">
+                                                                </div>
+                                                                <div class="coolinput">
+                                                                    <label for="primer_apellido" class="text">Primer Apellido</label>
+                                                                    <input type="text" id="primer_apellido" placeholder="Escribe aquí..." name="primer_apellido" class="input">
+                                                                </div>
+                                                                <div class="coolinput">
+                                                                    <label for="segundo_apellido" class="text">Segundo Apellido</label>
+                                                                    <input type="text" id="segundo_apellido" placeholder="Escribe aquí..." name="segundo_apellido" class="input">
+                                                                </div>
+                                                                <div class="coolinput">
+                                                                    <label for="Salario" class="text">Salario</label>
+                                                                    <input type="number" id="Salario" placeholder="Escribe aquí..." name="Salario" class="input">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <div class="coolinput">
+                                                                    <label for="Correo" class="text">Correo</label>
+                                                                    <input type="text" id="Correo" placeholder="Escribe aquí..." name="Correo" class="input">
+                                                                </div>
+                                                                <div class="coolinput">
+                                                                    <label for="Telefono" class="text">Teléfono</label>
+                                                                    <input type="number" id="Telefono" placeholder="Escribe aquí..." name="Telefono" class="input">
+                                                                </div>
+                                                                <div class="coolinput">
+                                                                    <label for="Direccion" class="text">Dirección</label>
+                                                                    <input type="text" id="Direccion" placeholder="Escribe aquí..." name="Direccion" class="input">
+                                                                </div>
+                                                                <div class="coolinput">
+                                                                    <label for="Puesto" class="text">Puesto</label>
+                                                                    <select id="Puesto" name="Puesto" class="select" >
+                                                                        <option selected value="">Seleccionar Puesto</option>
+                                                                        <option value="Administrador">Administrador</option>
+                                                                        <option value="Asistente">Asistente</option>
+                                                                        <option value="Diseñador">Diseñador</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="coolinput">
+                                                                    <label for="Imagen" class="text">Imagen</label>
+                                                                    <input class="for-control" type="file" id="Imagen" name="Imagen" value="">
+                                                                </div>
+                                                               
+                                                            </div>
+                                                        </div>
+                                                       
+                                                        <div style="text-align: center;" class="mt-5">
+                                                            <button class="boton" id="Enviar" name="Enviar"  class="btn" >
+                                                                <span id="">Crear Empleado</span>
+                                                            </button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <!-- END RECENT REPORT-->
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+
+                                            <div class="table-responsive m-b-40">
+                                                <table id="tablaEmpleados" class="table table-borderless table-striped table-data3">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Cédula</th>
+                                                            <th>Nombre</th>
+                                                            <th>Primer Apellido</th>
+                                                            <th>Segundo Apellido</th>
+                                                            <th></th>
+                                                            <th></th>
+                                                            <th></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody></tbody>
+                                                </table>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- END PAGE CONTENT-->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- END PAGE CONTENT  -->
+
+        </div>
+
+
+        {% include './layout/footer.html' %}
+
+
+        <script src="{{url_for('static', filename='/js/Empleados/empleados.js')}}"></script>
+        <script src="{{url_for('static', filename='/js/vistaAdmin.js')}}"></script>
+
+
+</body>
+
+</html>
